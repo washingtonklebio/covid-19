@@ -1,1 +1,1 @@
-# dark-mode
+# Stay home
