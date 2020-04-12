@@ -1,0 +1,245 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Nunito+Sans:ital@1&display=swap");
+@import "./reset.css";
+
+html {
+  height: 100%;
+  font-family: "Nunito Sans", sans-serif;
+
+  --bg: #fff;
+  --bg-primary: #7159c1;
+  --bg-secondary: #fafbfc;
+  --bg-hover: #7159c1;
+
+  --text-color-header: #fff;
+  --text-color-primary: #7159c1;
+  --text-color-secondary: rgba(44, 44, 44, 0.7);
+}
+/* MAIN  */
+body {
+  background: var(--bg);
+}
+
+p {
+  color: var(--text-color-secondary);
+}
+
+/* LOGO  */
+.logo {
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  color: var(--text-color-header);
+}
+
+.logo img {
+  max-width: 30px;
+  margin-right: 10px;
+}
+
+/* CONTAINER  */
+
+.container {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) 3fr 300px;
+  grid-template-areas:
+    "header header header"
+    "settings settings settings"
+    "sidebar content announcement"
+    "footer footer footer";
+}
+
+/* HEADER  */
+
+.header {
+  grid-area: header;
+  background: var(--bg-primary);
+  padding: 30px;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header nav a {
+  display: block;
+  padding: 10px;
+  color: var(--text-color-header);
+  font-size: 1.125em;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+.header nav a:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.header li + li {
+  margin-left: 10px;
+}
+
+/* SETTINGS */
+
+.settings {
+  grid-area: settings;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+  color: grey;
+}
+
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 40px;
+  height: 22px;
+  background: grey;
+  float: right;
+  border-radius: 100px;
+  position: relative;
+}
+
+label::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background-color: var(--bg-primary);
+}
+
+input:checked + label::after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 45px;
+}
+
+/* SIDEBAR */
+.sidebar {
+  grid-area: sidebar;
+  background: var(--bg-secondary);
+  padding: 30px;
+}
+
+.sidebar li a {
+  display: block;
+  min-width: 60px;
+  max-width: 100px;
+  margin: 0 auto 30px auto;
+  background: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, 0.15);
+  transition: 0.1s ease-out;
+}
+
+.sidebar li a:hover {
+  background: var(--bg-hover);
+}
+
+/* CONTENT  */
+
+.content {
+  grid-area: content;
+  max-width: 900px;
+  padding: 30px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+}
+
+.title {
+  color: var(--text-color-primary);
+}
+
+/* CONTRAST  */
+.contrast {
+  font-size: 16px;
+  color: var(--text-color-primary);
+}
+
+/* QUOTE  */
+.quote {
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, 0.15);
+  background: var(--bg-primary);
+}
+
+.quote p {
+  font-size: 1.5em;
+  font-style: italic;
+  max-width: 500px;
+  margin: 0 auto;
+  color: var(--text-color-header);
+}
+
+/* GLOBAL */
+.col-wide {
+  grid-column: 1/ -1;
+}
+
+.two-row {
+  grid-row: span 2;
+}
+
+/* IMAGES */
+.left-image {
+  align-self: end;
+}
+
+.right-image {
+  align-self: end;
+}
+
+/* ANNOUNCEMENT  */
+.announcement {
+  grid-area: announcement;
+  background: var(--bg-secondary);
+  display: grid;
+  align-content: start;
+  padding: 30px;
+  grid-gap: 30px;
+}
+
+.announcement p {
+  font-size: 12px;
+}
+
+/* FOOTER  */
+
+.footer {
+  grid-area: footer;
+  background: var(--bg-primary);
+}
+
+.footer p {
+  color: var(--text-color-header);
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid var(--bg-primary);
+}
